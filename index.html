@@ -1,16 +1,443 @@
-<nav class="navbar">
-  <a href="#home" class="logo">Karishma D</a>
 
-  <div class="nav-links">
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#contact">Contact</a>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karishma D | Portfolio</title>
 
-  <button id="themeBtn" aria-label="Change theme">🌙</button>
-</nav>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+    :root {
+      --bg: #f5f7ff;
+      --surface: #ffffff;
+      --text: #20243a;
+      --muted: #687086;
+      --primary: #635bff;
+      --border: #e4e7f2;
+      --shadow: 0 12px 35px rgba(40,45,90,0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button, input, textarea {
+      font: inherit;
+    }
+
+    /* NAVBAR */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .navbar {
+      max-width: 1200px;
+      margin: auto;
+      padding: 18px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      transition: 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    #themeBtn {
+      padding: 9px 13px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--bg);
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 85vh;
+      padding: 90px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 50px;
+      background:
+        radial-gradient(circle at 10% 20%,
+        rgba(99,91,255,0.13), transparent 30%),
+        radial-gradient(circle at 90% 80%,
+        rgba(168,85,247,0.12), transparent 30%);
+    }
+
+    .hero > div:first-child {
+      max-width: 650px;
+    }
+
+    .tag {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 3px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 5vw, 65px);
+      line-height: 1.25;
+      margin: 18px 0;
+    }
+
+    .hero h1 span {
+      color: var(--primary);
+    }
+
+    .hero h2 {
+      font-size: clamp(17px, 2.5vw, 24px);
+      margin-bottom: 15px;
+    }
+
+    .hero > div:first-child > p:not(.tag) {
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 23px;
+      margin: 5px 8px 5px 0;
+      border: 1px solid var(--primary);
+      border-radius: 10px;
+      background: var(--primary);
+      color: white;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(99,91,255,0.25);
+    }
+
+    .btn.outline {
+      background: transparent;
+      color: var(--primary);
+    }
+
+    .profile {
+      min-width: 260px;
+      padding: 35px;
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: 25px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .avatar {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 20px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #635bff, #b46bff);
+      color: white;
+      font-size: 48px;
+      font-weight: 800;
+      box-shadow: 0 10px 25px rgba(99,91,255,0.25);
+    }
+
+    .profile h3 {
+      font-size: 23px;
+    }
+
+    .profile p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* SECTIONS */
+
+    .section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 85px 30px;
+      scroll-margin-top: 80px;
+    }
+
+    .section h2 {
+      text-align: center;
+      font-size: 34px;
+      margin-bottom: 35px;
+    }
+
+    .section h2::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      margin: 12px auto 0;
+      background: var(--primary);
+      border-radius: 5px;
+    }
+
+    #about > p,
+    #contact > p {
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    /* SKILLS AND PROJECTS */
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      padding: 25px;
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary);
+    }
+
+    .project h3 {
+      margin-bottom: 12px;
+      color: var(--primary);
+    }
+
+    .project p {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    .project span {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+
+    /* CONTACT FORM */
+
+    #contactForm {
+      max-width: 650px;
+      margin: 30px auto 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    #contactForm input,
+    #contactForm textarea {
+      width: 100%;
+      padding: 15px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+    }
+
+    #contactForm input:focus,
+    #contactForm textarea:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(99,91,255,0.1);
+    }
+
+    #contactForm textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    #contactForm .btn {
+      align-self: flex-start;
+    }
+
+    #status {
+      margin-top: 20px !important;
+      color: var(--primary) !important;
+      font-weight: 600;
+    }
+
+    #responseList {
+      max-width: 750px;
+      margin: auto;
+    }
+
+    .response-card {
+      padding: 20px;
+      margin: 15px 0;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .response-card h3 {
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .response-card p {
+      color: var(--muted);
+      margin-top: 5px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 30px 20px;
+      text-align: center;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* DARK MODE */
+
+    body.dark {
+      --bg: #10111b;
+      --surface: #191b2b;
+      --text: #f3f4ff;
+      --muted: #a7adc2;
+      --primary: #918aff;
+      --border: #303249;
+      --shadow: 0 12px 35px rgba(0,0,0,0.2);
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 70px 25px;
+      }
+
+      .hero-buttons {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .profile {
+        width: min(100%, 350px);
+      }
+
+      .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+
+      .section h2 {
+        font-size: 28px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .profile {
+        padding: 25px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="#home" class="logo">Karishma D</a>
+
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <button id="themeBtn" aria-label="Change theme">🌙</button>
+  </nav>
+</header>
 
 <section id="home" class="hero">
   <div>
@@ -21,8 +448,10 @@
       Aspiring Web Developer | Problem Solver |
       Passionate Learner
     </p>
-    <a href="#projects" class="btn">View My Projects</a>
-    <a href="#contact" class="btn outline">Contact Me</a>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn">View My Projects</a>
+      <a href="#contact" class="btn outline">Contact Me</a>
+    </div>
   </div>
 
   <div class="profile">
@@ -97,7 +526,7 @@
     <button class="btn" type="submit">Submit</button>
   </form>
 
-  <p id="status"></p>
+  <p id="status" aria-live="polite"></p>
 </section>
 
 <section id="responses" class="section">
@@ -108,4 +537,74 @@
 
 <footer>
   <p>© 2026 Karishma D | My Portfolio</p>
+  <p>Designed with care by Karishma</p>
 </footer>
+
+<script>
+  // DARK AND LIGHT MODE
+
+  const themeBtn = document.getElementById("themeBtn");
+
+  themeBtn.addEventListener("click", function () {
+    document.body.classList.toggle("dark");
+
+    themeBtn.textContent =
+      document.body.classList.contains("dark") ? "☀️" : "🌙";
+  });
+
+
+  // CONTACT FORM DEMO
+
+  const contactForm = document.getElementById("contactForm");
+  const status = document.getElementById("status");
+  const responseList = document.getElementById("responseList");
+
+  contactForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+
+    if (!name || !email || !message) {
+      status.textContent = "Please fill in all fields.";
+      return;
+    }
+
+    const card = document.createElement("div");
+    card.className = "response-card";
+
+    const heading = document.createElement("h3");
+    heading.textContent = name;
+
+    const emailText = document.createElement("p");
+    emailText.textContent = "Email: " + email;
+
+    const messageText = document.createElement("p");
+    messageText.textContent = message;
+
+    card.append(heading, emailText, messageText);
+    responseList.prepend(card);
+
+    status.textContent = "Thank you, " + name + "! Your message is displayed below.";
+
+    contactForm.reset();
+  });
+
+
+  // SMOOTH SCROLL
+
+  document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+    link.addEventListener("click", function (event) {
+      const target = document.querySelector(link.getAttribute("href"));
+
+      if (target) {
+        event.preventDefault();
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
